@@ -1,15 +1,19 @@
 class Solution {
     public boolean isPalindrome(int x) {
         int revNum=0;
-        int org=x;
-        if(x<0) return false;
-        while(x!=0){
+        if(x<0||(x%10==0 && x!=0)){
+            return false;
+        }
+        while(x>revNum){
             int lastDig=x%10;
-            if (revNum > Integer.MAX_VALUE / 10) return false;
-            revNum=(revNum*10)+lastDig;
+            revNum=revNum*10+lastDig;
             x=x/10;
         }
-        return revNum==org;
+        if(x==revNum||x==revNum/10){
+            return true;
+        }else{
+            return false;
+        }
 
     }
 }
