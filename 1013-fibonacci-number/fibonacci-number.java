@@ -1,9 +1,14 @@
 class Solution {
     public int fib(int n) {
-        if(n<=1)
-        return n;
-        int last=fib(n-1);
-        int slast=fib(n-2);
-        return last+slast;
+       if(n<=1)
+       return n;
+       int a=0;
+       int b=1;
+       for(int i=0;i<n;i++){
+        int next=a+b;
+        a=b;
+        b=next;
+       }
+       return a;
     }
 }
